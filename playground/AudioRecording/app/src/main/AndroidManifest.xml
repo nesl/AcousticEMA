@@ -21,8 +21,10 @@
         </activity>
         <activity
             android:name=".SelfRecordingActivity"
-            android:label="@string/title_activity_self_recording">
-        </activity>
+            android:label="@string/title_activity_self_recording"></activity>
+        <activity
+            android:name=".LoopingMusicActivity"
+            android:label="@string/title_activity_looping_music"></activity>
     </application>
 
 </manifest>

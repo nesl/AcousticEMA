@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         loopButton = (Button)findViewById(R.id.buttonPlay);
 
         recordButton.setOnClickListener(recordClickEventListener);
-        //playButton.setOnClickListener(playClickEventListener);
+        loopButton.setOnClickListener(loopHallowedClickEventListener);
 
     }
 
@@ -39,10 +39,11 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private final View.OnClickListener playClickEventListener = new View.OnClickListener() {
+    private final View.OnClickListener loopHallowedClickEventListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            Intent intent = new Intent(MainActivity.this, LoopingMusicActivity.class);
+            startActivity(intent);
         }
     };
 
