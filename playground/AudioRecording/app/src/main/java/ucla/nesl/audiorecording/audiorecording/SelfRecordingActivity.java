@@ -100,9 +100,7 @@ public class SelfRecordingActivity extends AppCompatActivity {
     private void playAudioMusic() {
         mediaPlayer = new MediaPlayer();
         try {
-            //mediaPlayer.setDataSource(voiceFilePath);
-            mediaPlayer.setDataSource(Environment.getExternalStorageDirectory().getAbsolutePath()
-                    + File.separator + "hallowed.mp3");
+            mediaPlayer.setDataSource(voiceFilePath);
             mediaPlayer.prepare();
         } catch (IOException e) {
             e.printStackTrace();
