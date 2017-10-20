@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button recordButton;
     private Button loopButton;
+    private Button periodicalButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
 
         permissionSelfCheck();
 
-        recordButton = (Button)findViewById(R.id.buttonRecord);
-        loopButton = (Button)findViewById(R.id.buttonPlay);
+        recordButton = (Button) findViewById(R.id.buttonRecord);
+        loopButton = (Button) findViewById(R.id.buttonPlay);
+        periodicalButton = (Button) findViewById(R.id.buttonPeriodical);
 
         recordButton.setOnClickListener(recordClickEventListener);
         loopButton.setOnClickListener(loopHallowedClickEventListener);
-
+        periodicalButton.setOnClickListener(perodicalReminderClickEventListener);
     }
 
     // ---- button callbacks --------------------------------------------------------------------
@@ -43,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(MainActivity.this, LoopingMusicActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    private final View.OnClickListener perodicalReminderClickEventListener
+            = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(MainActivity.this, PeriodicalSoundActivity.class);
             startActivity(intent);
         }
     };
@@ -63,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WAKE_LOCK)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WAKE_LOCK}, 3);
         }
     }
 }

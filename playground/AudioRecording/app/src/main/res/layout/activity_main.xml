@@ -37,5 +37,12 @@
         android:layout_below="@+id/buttonRecord"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Periodical reminder"
+        android:id="@+id/buttonPeriodical"
+        android:layout_below="@+id/buttonPlay"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
